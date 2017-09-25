@@ -48,8 +48,6 @@ namespace iOS_tutorial
 			//end of for translate button
 
 
-
-
 			//call button code
 			CallButton.TouchUpInside += (object sender, EventArgs e) => {
                 // Use URL handler with tel: prefix to invoke Apple's Phone app...
@@ -65,27 +63,40 @@ namespace iOS_tutorial
 					PresentViewController(alert, true, null);
 				}
 			};
-            //end of call button code
+			//end of call button code
 
-        }
-
-		public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
-		{
-			base.PrepareForSegue(segue, sender);
-
-			// set the View Controller that’s powering the screen we’re
-			// transitioning to
-
-			var callHistoryContoller = segue.DestinationViewController as CallHistoryController;
-
-			//set the Table View Controller’s list of phone numbers to the
-			// list of dialed phone numbers
-
-			if (callHistoryContoller != null)
-			{
-				callHistoryContoller.PhoneNumbers = PhoneNumbers;
-			}
+			//call history button
+			CallHistoryButton.TouchUpInside += (object sender, EventArgs e) => {
+				// Launches a new instance of CallHistoryController
+				CallHistoryController callHistory = this.Storyboard.InstantiateViewController("CallHistoryController") as CallHistoryController;
+				if (callHistory != null)
+				{
+					callHistory.PhoneNumbers = PhoneNumbers;
+					this.NavigationController.PushViewController(callHistory, true);
+				}
+			};
+            //end of call history button
 		}
+
+		//public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
+		//{
+		//	base.PrepareForSegue(segue, sender);
+
+		//	// set the View Controller that’s powering the screen we’re
+		//	// transitioning to
+
+		//	var callHistoryContoller = segue.DestinationViewController as CallHistoryController;
+
+		//	//set the Table View Controller’s list of phone numbers to the
+		//	// list of dialed phone numbers
+
+		//	if (callHistoryContoller != null)
+		//	{
+		//		callHistoryContoller.PhoneNumbers = PhoneNumbers;
+		//	}
+		//}
+
+
 
         public override void DidReceiveMemoryWarning()
         {

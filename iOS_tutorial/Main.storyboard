@@ -51,9 +51,7 @@
                                 <state key="normal" title="Call History">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue id="1139" destination="852" kind="show"/>
-                                </connections>
+                                <connections/>
                             </button>
                         </subviews>
                         <variation key="default">
@@ -102,7 +100,7 @@
         </scene>
         <scene sceneID="851">
             <objects>
-                <tableViewController id="852" sceneMemberID="viewController" customClass="CallHistoryController" title="Call History">
+                <tableViewController id="852" sceneMemberID="viewController" customClass="CallHistoryController" title="Call History" storyboardIdentifier="CallHistoryController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="853">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
